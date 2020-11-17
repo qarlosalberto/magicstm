@@ -48,7 +48,7 @@ class Vhdl_code {
 
   get_vhdl_one_process(stm): string {
     let stm_hdl: string = "";
-    stm_hdl += this.open_proccess();
+    stm_hdl += this.open_process();
     stm_hdl += this.open_case();
     for (let i = 0; i < stm.length; ++i) {
       if (stm[i].transitions.length !== 0 || stm[i].outputs.length !== 0) {
@@ -60,7 +60,7 @@ class Vhdl_code {
       }
     }
     stm_hdl += this.close_case();
-    stm_hdl += this.close_proccess();
+    stm_hdl += this.close_process();
     return stm_hdl;
   }
 
@@ -99,15 +99,15 @@ class Vhdl_code {
     return str;
   }
 
-  open_proccess() {
+  open_process() {
     let str: string = "";
-    str += "proccess(clk)\nbegin\n";
+    str += "process(clk)\nbegin\n";
     return str;
   }
 
-  close_proccess() {
+  close_process() {
     let str: string = "";
-    str += "end proccess;\n";
+    str += "end process;\n";
     return str;
   }
 
@@ -148,7 +148,7 @@ class Verilog_code {
 
   get_verilog_one_process(stm): string {
     let stm_hdl: string = "";
-    stm_hdl += this.open_proccess();
+    stm_hdl += this.open_process();
     stm_hdl += this.open_case();
     for (let i = 0; i < stm.length; ++i) {
       if (stm[i].transitions.length !== 0 || stm[i].outputs.length !== 0) {
@@ -161,7 +161,7 @@ class Verilog_code {
       }
     }
     stm_hdl += this.close_case();
-    stm_hdl += this.close_proccess();
+    stm_hdl += this.close_process();
     return stm_hdl;
   }
 
@@ -208,13 +208,13 @@ class Verilog_code {
     return str;
   }
 
-  open_proccess() {
+  open_process() {
     let str: string = "";
     str += "always @(clk)\n";
     return str;
   }
 
-  close_proccess() {
+  close_process() {
     let str: string = "";
     str += "end;\n";
     return str;
