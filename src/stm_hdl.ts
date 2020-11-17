@@ -88,11 +88,11 @@ class Vhdl_code {
     for (let i = 0; i < transitions.length; ++i) {
       if (i === 0) {
         str += this.indent3 + `if (${transitions[i].condition}) then\n`;
-        str += this.indent4 + `STATE <= ${transitions[i].destination}\n`;
+        str += this.indent4 + `STATE <= ${transitions[i].destination};\n`;
       }
       else {
         str += this.indent3 + `elsif (${transitions[i].condition}) then\n`;
-        str += this.indent4 + `STATE <= ${transitions[i].destination}\n`;
+        str += this.indent4 + `STATE <= ${transitions[i].destination};\n`;
       }
     }
     str += this.indent3 + "end if;\n";
